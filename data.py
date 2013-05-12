@@ -13,6 +13,8 @@ STATION_IDS = [200, 33, 489]
 
 def get_data():
     r = requests.get(FEED_URL)
+    if 200 != r.status_code:
+        print 'TfaiL'
     return r.text
 
 

@@ -2,10 +2,19 @@
 <html class="no-js" lang="en" manifest="/cache.manifest">
     <head>
         <meta charset="utf-8">
+        <title>Bikes</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='img/startup-320x460.png') }}" sizes="320x460" />
+        <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='img/startup-640x1096.png') }}" sizes="640x1096" />
+        <link rel="apple-touch-startup-image" href="{{ url_for('static', filename='img/startup-640x920.png') }}" sizes="640x920" />
+
+        <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" />
+        <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon-72.png') }}" sizes="72x72"  />
+        <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon-114.png') }}" sizes="114x114" />
 
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     </head>
