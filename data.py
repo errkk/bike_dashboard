@@ -1,8 +1,11 @@
 import requests
+from os import environ
 from bs4 import BeautifulSoup
 
 
-FEED_URL = 'http://www.tfl.gov.uk/tfl/businessandpartners/syndication/feed.aspx?email=errkkgeorge@gmail.com&feedId=12'
+FEED_URL = 'http://www.tfl.gov.uk/tfl/businessandpartners/syndication/feed.aspx?email={email}&feedId=12'\
+    .format(email=environ.get('TFL_EMAIL'))
+
 
 STATION_IDS = [200, 33, 489]
 
