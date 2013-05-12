@@ -26,7 +26,7 @@ def get_by_id(station):
 
 
 def bikes():
-    text = get_data_local()
+    text = get_data()
     xml = text[38:]
     soup = BeautifulSoup(xml, 'xml')
 
