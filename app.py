@@ -13,5 +13,9 @@ def hello():
         return e
     return render_template('base.html', data=data)
 
+
+@app.route("/favicon.ico"):
+    return ''
+
 if __name__ == "__main__":
     app.run('0.0.0.0', debug=True)
