@@ -1,14 +1,23 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html lang="en">
-<head>
-    <title>My Webpage</title>
-</head>
-<body>
-    <h1>My Webpage</h1>
-    <ul id="navigation">
-    {% for item in data %}
-    <li>{{ item.bikes }} Bikes / {{ item.spaces }} / {{ item.total }}</li>
-    {% endfor %}
-    </ul>
-</body>
+<!doctype html>
+<html class="no-js" lang="en" manifest="/cache.manifest">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    </head>
+    <body>
+        {% for item in data %}
+        <div class="station" style="background-position: {{ item.percent }}% 0">
+            <h1>{{ item.name }}</h1>
+            <p>
+                <span class="bikes">Bikes: {{ item.bikes }}</span>
+                <span class="spaces">Spaces: {{ item.spaces }}</span>
+            </p>
+        </div>
+        {% endfor %}
+    </body>
 </html>

@@ -10,8 +10,10 @@ STATION_IDS = [200, 33, 489]
 
 def get_data():
     r = requests.get(FEED_URL)
-    print r.status_code
-    return r.text
+    if 200 != r.status_code:
+        raise Exception('Cant get data from TFL')
+    else:
+        return r.text
 
 
 def get_data_local():
@@ -37,8 +39,9 @@ def bikes():
         total = int(station.nbDocks.text)
         spaces = int(station.nbEmptyDocks.text)
         bikes = int(station.nbBikes.text)
+        percent = float(spaces) / float(total) * 100.0
         res.append({'id': id, 'total': total, 'spaces': spaces, 'bikes': bikes,
-                    'name': name})
+                    'name': name, 'percent': percent})
 
     return res
 
