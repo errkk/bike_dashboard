@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-#from data import bikes
+from data import bikes
 
 
 app = Flask(__name__)
@@ -7,14 +7,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    try:
-        data = bikes()
-    except Exception as e:
-        return e
+    data = bikes()
     return render_template('base.html', data=data)
 
 
-@app.route("/favicon.ico"):
+@app.route("/favicon.ico")
+def fav():
     return ''
 
 if __name__ == "__main__":

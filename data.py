@@ -10,10 +10,7 @@ STATION_IDS = [200, 33, 489]
 
 def get_data():
     r = requests.get(FEED_URL)
-    if 200 != r.status_code:
-        raise Exception('Cant get data from TFL')
-    else:
-        return r.text
+    return r.text
 
 
 def get_data_local():
