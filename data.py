@@ -38,6 +38,7 @@ def bikes():
     res = []
     for station in stations:
         name = station.find('name').text
+        id = station.find('id').text
         total = int(station.nbDocks.text)
         spaces = int(station.nbEmptyDocks.text)
         bikes = int(station.nbBikes.text)

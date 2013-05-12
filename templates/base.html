@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" manifest="/cache.manifest">
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <title>Bikes</title>
@@ -17,10 +17,25 @@
         <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon-114.png') }}" sizes="114x114" />
 
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+        <style type="text/css">
+        {% for item in data %}
+            .loaded #item_{{ item.id }} {
+                background-position: {{ item.percent }}% 0;
+            }
+        {% endfor %}
+        </style>
+
+        <script>
+            window.setTimeout(function() {
+                var bodyEl = document.getElementsByTagName('body')[0];
+                bodyEl.className = 'loaded';
+            }, 200);
+        </script>
     </head>
     <body>
         {% for item in data %}
-        <div class="station" style="background-position: {{ item.percent }}% 0">
+        <div id="item_{{ item.id }}" class="station">
             <h1>{{ item.name }}</h1>
             <p>
                 <span class="bikes">Bikes: {{ item.bikes }}</span>
